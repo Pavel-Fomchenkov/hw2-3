@@ -7,6 +7,7 @@ public class Car extends Vehicle implements Service {
         System.out.println("Проверяем двигатель");
     }
 
+    @Override
     public void check() {
         System.out.println("Обслуживаем " + modelName);
         for (int i = 0; i < wheelsCount; i++) {
