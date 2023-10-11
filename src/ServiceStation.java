@@ -1,23 +1,29 @@
 public class ServiceStation {
-    public void check(Car car, Bicycle bicycle, Truck truck) {
-        if (car != null) {
-            System.out.println("Обслуживаем " + car.modelName);
-            for (int i = 0; i < car.wheelsCount; i++) {
-                car.updateTyre();
+    private final Servisable[] servisables = new Servisable[10];
+
+    public void addToServise(Servisable servisable) {
+        if (servisables[servisables.length - 1] != null) {
+            System.out.println("Мест нет");
+        } else {
+            for (int i = 0; i < servisables.length; i++) {
+                if (servisables[i] == null) {
+                    servisables[i] = servisable;
+                    break;
+                }
             }
-            car.checkEngine();
-        } else if (truck != null) {
-            System.out.println("Обслуживаем " + truck.modelName);
-            for (int i = 0; i < truck.wheelsCount; i++) {
-                truck.updateTyre();
+        }
+    }
+
+    public void service() {
+        if (servisables[0] == null) {
+            System.out.println("Очередь обслуживания пуста");
+        } else {
+            servisables[0].check();
+            System.out.println();
+            for (int i = 1; i < servisables.length; i++) {
+                servisables[i - 1] = servisables[i];
             }
-            truck.checkEngine();
-            truck.checkTrailer();
-        } else if (bicycle != null) {
-            System.out.println("Обслуживаем " + bicycle.modelName);
-            for (int i = 0; i < bicycle.wheelsCount; i++) {
-                bicycle.updateTyre();
-            }
+            servisables[servisables.length - 1] = null;
         }
     }
 }
