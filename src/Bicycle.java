@@ -1,7 +1,12 @@
-public class Bicycle extends Vehicle {
+public class Bicycle extends Transport {
     Bicycle(String modelName, int wheelCount) {
         super(modelName, wheelCount);
     }
+
+    private void updateTyre() {
+        System.out.println("Меняем покрышку");
+    }
+
     @Override
     public void check() {
         System.out.println("Обслуживаем " + this.modelName);

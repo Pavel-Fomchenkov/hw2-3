@@ -1,8 +1,8 @@
-public abstract class Vehicle implements Service {
+public abstract class Transport implements Servisable {
     protected final String modelName;
     protected final int wheelsCount;
 
-    public Vehicle(String modelName, int wheelsCount) {
+    public Transport(String modelName, int wheelsCount) {
         this.modelName = modelName;
         this.wheelsCount = wheelsCount;
     }
